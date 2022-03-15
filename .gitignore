@@ -1,0 +1,12 @@
+*.log
+.DS_Store
+.idea
+Thumbs.db
+npm-debug.log*
+!.gitkeep
+node_modules
+dump.rdb
+./../.DS_Store
+tsconfig.tsbuildinfo
+build
+dist
