@@ -1,15 +1,15 @@
-# @react-native-strange/cli
+# react-native-leaf-cli
 
 ## Install
 
-* `$ yarn add leaf-react-native-cli`
+* `$ yarn add react-native-leaf-cli`
 
 ### Use
 
 #### - pack
 
 
-`$ leaf-react-native build --platform android --basics --modules A,B`
+`$ react-native-leaf build --platform android --basics --modules A,B`
 
 * `--platform`: enum { `android`, `ios` }
 * `--basics`: build the basics bundle
@@ -17,7 +17,7 @@
 
 #### - debug
 
-`$ leaf-react-native debug`
+`$ react-native-leaf debug`
 
 ## feature
 

@@ -23,3 +23,32 @@ export const rmdir = (dir: string) => {
     fs.rmdirSync(dir);
   }
 };
+
+const toMatrix = <T>(array: Array<T>, length: number) => {
+  const matrix: Array<Array<T>> = [];
+
+  for (let i = 0, len = array.length; i < len; i++) {
+    const index = Math.floor(i / length);
+    if (!matrix[index]) {
+      matrix[index] = [];
+    }
+    matrix[index].push(array[i]);
+  }
+
+  return matrix;
+};
+
+export async function promiseAll<T>(
+  values: Array<PromiseLike<T>>,
+  thread: number
+): Promise<T[]> {
+  let results: T[] = [];
+  const matrixPromises = toMatrix(values, thread);
+
+  for (let i = 0, len = matrixPromises.length; i < len; i++) {
+    const result = await Promise.all(matrixPromises[i]);
+    results = results.concat(result);
+  }
+
+  return results;
+}

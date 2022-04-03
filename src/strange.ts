@@ -12,11 +12,11 @@ import {
   ScreenBuildConfig,
   ScreenModel,
 } from './types';
-import { exec, readJsonFileSync, rmdir } from './utils';
+import { exec, promiseAll, readJsonFileSync, rmdir } from './utils';
 import ora from 'ora';
 import chalk from 'chalk';
 import child_process from 'child_process';
-import { usedSecond } from './helpers';
+import { usedSecond, replacePathSep } from './helpers';
 import { createDebuggerTmpl } from './templates/debugger';
 
 const spinner = ora();
@@ -207,14 +207,15 @@ export class Strange {
         }
       });
 
-      await Promise.all(
+      await promiseAll(
         commands.map((command) =>
           exec(command, {
             maxBuffer: 1024 * 10000,
             encoding: 'utf8',
             env: process.env,
           })
-        )
+        ),
+        4
       );
 
       spinner.succeed(spinnerText);
@@ -271,14 +272,15 @@ export class Strange {
         });
       });
 
-      await Promise.all(
+      await promiseAll(
         commands.map((command) => {
           return exec(command, {
             maxBuffer: 1024 * 10000,
             encoding: 'utf8',
             env: process.env,
           });
-        })
+        }),
+        4
       );
 
       spinner.succeed(spinnerText);
@@ -369,6 +371,8 @@ export class Strange {
         }
       });
     });
+
+    template = replacePathSep(template);
 
     fs.writeFileSync(path.join(this.rootDir, 'index.js'), template);
 

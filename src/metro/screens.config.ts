@@ -20,7 +20,7 @@ const processModuleFilter = processModuleFilterWrapper((module: any) => {
 const getModulesRunBeforeMainModule = (entryFilePath: string) => {
   dependency = new Dependency('screens');
   dependency.setCurrentByEntryFilePath(entryFilePath);
-  dependency.cleanModulesDependencies();
+  dependency.cleanScreensDependencies();
   return [];
 };
 

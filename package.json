@@ -1,7 +1,7 @@
 {
-  "name": "leaf-react-native-cli",
+  "name": "react-native-leaf-cli",
   "version": "0.1.0",
-  "description": "",
+  "description": "react native multiple bundler",
   "main": "build/index.js",
   "files": [
     "build",
@@ -9,7 +9,7 @@
     "!build/*.map"
   ],
   "bin": {
-    "leaf-react-native": "build/index.js"
+    "react-native-leaf-cli": "build/index.js"
   },
   "scripts": {
     "dev": "tsc -w",
@@ -20,12 +20,16 @@
   "engines": {
     "node": ">=10"
   },
-  "homepage": "https://gitee.com/hi-zp/leaf-react-native-cli",
+  "repository": "https://github.com/hi-zp/react-native-leaf-cli",
+  "homepage": "https://github.com/hi-zp/react-native-leaf-cli",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "mai血过年 <luckcoding@gmail.com> (https://github.com/hi-zp)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hi-zp/react-native-leaf-cli/issues"
+  },
   "dependencies": {
     "archiver": "^5.3.0",
     "chalk": "^4.1.1",

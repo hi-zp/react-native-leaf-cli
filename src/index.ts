@@ -10,6 +10,8 @@ const program = new Command();
 
 program.description('🔥 leaf-react-native-cli');
 
+// program.version('0.0.1', '-v, --version')
+
 program
   .command('build')
   .option('-p, --platform [platform]')
